@@ -1,0 +1,57 @@
+$(document).ready(function () {
+  $("#carousel-imagens").slick({
+    autoplay: true,
+    arrows: false,
+  });
+});
+
+$("#telefone").mask("(00) 00000-0000", {
+  placeholder: "(__) _____-____",
+});
+
+$("#cpf").mask("000.000.000-00", {
+  placeholder: "___.___.___-__",
+});
+
+$("#cep").mask("00000-000", {
+  placeholder: "00000-000",
+});
+
+$("form").validate({
+  rules: {
+    nome: {
+      required: true,
+    },
+    email: {
+      required: true,
+      email: true,
+    },
+    telefone: {
+      required: true,
+    },
+    endereco: {
+      required: true,
+    },
+    cep: {
+      required: true,
+    },
+    cpf: {
+      required: true,
+    },
+  },
+  messages: {
+    nome: "Por favor insira seu nome",
+    email: "Por favor insira seu e-mail",
+    telefone: "Por favor insira seu telefone",
+    cep: "Por favor insira seu CEP",
+    cpf: "Por favor insira seu CPF",
+    endereco: "Por favor insira seu endereço",
+  },
+  submitHandler: function (form) {
+    alert("Sua requisição foi enviada para análise!\nParabéns pela aquisição!");
+    form.reset();
+  },
+  invalidHandler: function (evento, validador) {
+    alert("Por favor, preencha os campos para prosseguir com a compra!");
+  },
+});
